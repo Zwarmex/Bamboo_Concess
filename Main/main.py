@@ -1,9 +1,12 @@
 import argparse
-from Main.main_console import ApplicationConsole
-from Main.main_gui import ApplicationGUI
+from main_console import ApplicationConsole
+from main_gui import ApplicationGUI
 
 
 def main():
+    """
+    f
+    """
     parser = argparse.ArgumentParser(
         description='Choisissez l\'interface que vous désirez')
     parser.add_argument('interface', metavar='interface', type=str, help='Entrez "gui" pour l\'interface graphique et '
