@@ -41,7 +41,7 @@ concess bâtiment différent
 *<u>__10-11__ => Réunion avec le client :</u>*
 
 - Présentation de notre uml ![](Main/img/UML.png)
-- Présentation de notre schéma d'architecture ![](Main/img/Schéma Architecture.png)
+- Présentation de notre schéma d'architecture ![](Main/img/schema_architecture.png)
 
 *<u>__8/12__ => Réunion finale avec le client :</u>*
 

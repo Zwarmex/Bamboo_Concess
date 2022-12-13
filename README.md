@@ -17,6 +17,6 @@ console.
 
 - Et voici notre schéma d'architecture : 
 
-![](Main/img/Schéma Architecture.png)
+![](Main/img/schema_architecture.png)
 
 
