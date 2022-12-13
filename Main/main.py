@@ -1,6 +1,6 @@
 import argparse
-from main_gui import ApplicationGUI
-from main_console import ApplicationConsole
+from Main.main_console import ApplicationConsole
+from Main.main_gui import ApplicationGUI
 
 
 def main():

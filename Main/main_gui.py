@@ -609,4 +609,4 @@ class ApplicationGUI:
 
 
 # It will launch the application
-ApplicationGUI()
+# ApplicationGUI()
