@@ -286,4 +286,4 @@ r        """
         self.menu_choice()
 
 
-ApplicationConsole()
+# ApplicationConsole()
