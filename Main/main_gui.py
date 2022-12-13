@@ -610,3 +610,5 @@ class ApplicationGUI:
 
 # It will launch the application
 # ApplicationGUI()
+if __name__ == "__name__":
+    ApplicationGUI()
