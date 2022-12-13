@@ -1,3 +1,5 @@
+import os
+import sys
 import tkinter.font as font
 from tkinter import *
 from tkcalendar import DateEntry as tkCal
@@ -610,5 +612,5 @@ class ApplicationGUI:
 
 # It will launch the application
 # ApplicationGUI()
-if __name__ == "__name__":
+if __name__ == "__main__":
     ApplicationGUI()
