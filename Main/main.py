@@ -19,7 +19,7 @@ def main():
         ApplicationConsole()
     else:
         print(
-            "Vous n'avez pas rentré un nombre correspondant à une interface existante.\n"
+            "Vous n'avez pas rentré de paramètre correspondant à une interface existante.\n"
             "Faites 'py main.py -h' pour avoir plus d'informations.")
 
 
