@@ -8,6 +8,9 @@ from Main.Class.customer import Customer
 from datetime import datetime
 import re
 from Main.CommonCode.function_common import *
+import logging
+import os
+import logging.handlers
 
 
 class ApplicationConsole:
@@ -285,6 +288,20 @@ r        """
             print("No free places in stock.\n")
         self.menu_choice()
 
+
+handler = logging.handlers.WatchedFileHandler(
+    os.environ.get("LOGFILE", "/var/log/yourapp.log"))
+formatter = logging.Formatter(logging.BASIC_FORMAT)
+handler.setFormatter(formatter)
+root = logging.getLogger()
+root.setLevel(os.environ.get("LOGLEVEL", "INFO"))
+root.addHandler(handler)
+
+try:
+    exit(ApplicationConsole())
+except Exception:
+    logging.exception("Exception in ApplicationConsole()")
+    exit(1)
 
 # ApplicationConsole()
 if __name__ == "__main__":
