@@ -8,9 +8,12 @@ from Main.Class.customer import Customer
 from datetime import datetime
 import re
 from Main.CommonCode.function_common import *
+
+"""
 import logging
 import os
 import logging.handlers
+"""
 
 
 class ApplicationConsole:
@@ -289,6 +292,7 @@ r        """
         self.menu_choice()
 
 
+"""
 handler = logging.handlers.WatchedFileHandler(
     os.environ.get("LOGFILE", "/var/log/yourapp.log"))
 formatter = logging.Formatter(logging.BASIC_FORMAT)
@@ -302,7 +306,7 @@ try:
 except Exception:
     logging.exception("Exception in ApplicationConsole()")
     exit(1)
-
+"""
 # ApplicationConsole()
 if __name__ == "__main__":
     ApplicationConsole()
