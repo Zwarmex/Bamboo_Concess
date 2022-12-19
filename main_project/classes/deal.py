@@ -1,6 +1,6 @@
-from Main.Class.database import DBAccess as Db
-from Main.Class.car import Car
-from Main.Class.customer import Customer
+from main_project.classes.database import DBAccess as Db
+from main_project.classes.car import Car
+from main_project.classes.customer import Customer
 import sqlite3 as sql
 import sys
 from datetime import datetime, timedelta

@@ -13,10 +13,10 @@ console.
 
 - Voici notre diagramme UML correspondant à la solution :
 
-![](Main/img/UML.png)
+![](main_project/img/UML.png)
 
 - Et voici notre schéma d'architecture : 
 
-![](Main/img/schema_architecture.png)
+![](main_project/img/schema_architecture.png)
 
 

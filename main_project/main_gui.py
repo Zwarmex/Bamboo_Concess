@@ -4,12 +4,12 @@ from tkcalendar import DateEntry as tkCal
 import math
 import re
 from datetime import datetime
-from Main.function_common import *
-from Main.Class.customer import Customer
-from Main.Class.deal import Deal
-from Main.Class.car_components import Motor, Type, Brand
-from Main.Class.car import Car
-from Main.Class.historic_deal import HistoricDeal
+from main_project.function_common import *
+from main_project.classes.customer import Customer
+from main_project.classes.deal import Deal
+from main_project.classes.car_components import Motor, Type, Brand
+from main_project.classes.car import Car
+from main_project.classes.historic_deal import HistoricDeal
 
 
 class ApplicationGUI:

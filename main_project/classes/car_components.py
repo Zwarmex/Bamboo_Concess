@@ -1,4 +1,4 @@
-from Main.Class.database import DBAccess as Db
+from main_project.classes.database import DBAccess as Db
 
 
 class Brand(Db):

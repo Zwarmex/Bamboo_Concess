@@ -3,7 +3,7 @@ from __future__ import annotations
 import sqlite3 as sql
 import sys
 
-from Main.Class.database import DBAccess as Db
+from main_project.classes.database import DBAccess as Db
 
 
 class Customer(Db):

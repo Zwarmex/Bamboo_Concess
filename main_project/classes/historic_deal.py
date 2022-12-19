@@ -1,6 +1,6 @@
-from Main.Class.deal import Deal
-from Main.Class.car import Car
-from Main.Class.customer import Customer
+from main_project.classes.deal import Deal
+from main_project.classes.car import Car
+from main_project.classes.customer import Customer
 import sqlite3 as sql
 import sys
 
