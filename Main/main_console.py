@@ -1,13 +1,11 @@
 import sys
 from Main.Class.car import Car
-from Main.Class.brand import Brand
-from Main.Class.type import Type
-from Main.Class.motor import Motor
+from Main.Class.car_components import Brand, Type, Motor
 from Main.Class.deal import Deal
 from Main.Class.customer import Customer
 from datetime import datetime
 import re
-from Main.CommonCode.function_common import *
+from Main.function_common import *
 
 """
 import logging

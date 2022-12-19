@@ -1,17 +1,13 @@
-import os
-import sys
 import tkinter.font as font
 from tkinter import *
 from tkcalendar import DateEntry as tkCal
 import math
 import re
 from datetime import datetime
-from Main.CommonCode.function_common import *
-from Main.Class.brand import Brand
+from Main.function_common import *
 from Main.Class.customer import Customer
 from Main.Class.deal import Deal
-from Main.Class.motor import Motor
-from Main.Class.type import Type
+from Main.Class.car_components import Motor, Type, Brand
 from Main.Class.car import Car
 from Main.Class.historic_deal import HistoricDeal
 

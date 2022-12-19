@@ -3,10 +3,8 @@ from __future__ import annotations
 import sqlite3 as sql
 import sys
 
-from Main.Class.brand import Brand
+from Main.Class.car_components import Brand, Type, Motor
 from Main.Class.database import DBAccess as Db
-from Main.Class.motor import Motor
-from Main.Class.type import Type
 
 
 class Car(Db):
