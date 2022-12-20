@@ -73,9 +73,11 @@ class ApplicationConsole:
         while not (new_customer.phone.isdigit() and len(new_customer.phone) == 10):
             new_customer.phone = input("What's the phone number (10 numbers)\n-> ")
         new_customer.phone = int(new_customer.phone)
-        while not (re.fullmatch(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]+\b', new_customer.mail)):
+        regex = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[" \
+                r"a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$ "
+        while not (re.fullmatch(regex, new_customer.mail)):
             new_customer.mail = input("What's the email address ?\n-> ")
-        while not re.fullmatch(r"[a-zA-Z0-9\s._%+-]+, [a-zA-Z0-9\s._%+-]+\b", new_customer.address):
+        while not re.fullmatch(r"^[\w\s]+\s[\d]+,[\s]*[\d]{4}[\s]*[\w\s]+$", new_customer.address):
             new_customer.address = input("What's the address ?\n-> ")
         if new_customer.insert_db():
             print("New customer added\n")

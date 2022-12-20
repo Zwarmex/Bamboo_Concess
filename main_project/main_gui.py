@@ -483,10 +483,12 @@ class ApplicationGUI:
         if not (new_customer.phone.isdigit() and len(new_customer.phone) == 10):
             text_info += "- There is no phone number.\n"
         new_customer.mail = customer_string_var["mail"].get()
-        if not (re.fullmatch(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]+\b', new_customer.mail)):
+        regex = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[" \
+                r"a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$ "
+        if not (re.fullmatch(regex, new_customer.mail)):
             text_info += "- There is no email address.\n"
         new_customer.address = customer_string_var["address"].get()
-        if not re.fullmatch(r"[a-zA-Z0-9\s._%+-]+, [a-zA-Z0-9\s._%+-]+\b", new_customer.address):
+        if not re.fullmatch(r"^[\w\s]+\s[\d]+,[\s]*[\d]{4}[\s]*[\w\s]+$", new_customer.address):
             text_info += "- It's not a good address.\n"
         if not text_info:
             new_customer.insert_db()
