@@ -1,7 +1,21 @@
 import unittest
 from main_project.classes.customer import Customer
 
+
 class TestCustomer(unittest.TestCase):
+
+    def test_init(self):
+        # Test d'initialisation d'un objet Customer avec des valeurs par défaut
+        customer = Customer()
+        self.assertEqual(customer.id, 0)
+        self.assertEqual(customer.first_name, "")
+        self.assertEqual(customer.last_name, "")
+        self.assertEqual(customer.phone, 0)
+        self.assertEqual(customer.mail, "")
+        self.assertEqual(customer.address, "")
+        self.assertEqual(customer.counter, 0)
+        self.assertEqual(customer.loyalty_since, "")
+
     def test_get_customer(self):
         # Test avec un id valide
         id_customer = 1
@@ -39,6 +53,7 @@ class TestCustomer(unittest.TestCase):
     def test_id_column(self):
         # Test de récupération du nom de la colonne id de la table client
         self.assertEqual(Customer.id_column(), "id")
+
 
 if __name__ == '__main__':
     unittest.main()
