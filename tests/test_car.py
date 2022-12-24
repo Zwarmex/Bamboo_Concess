@@ -3,6 +3,14 @@ from main_project.classes.car import Car
 
 
 class TestCar(unittest.TestCase):
+    def setUp(self):
+        # Code à exécuter avant chaque test
+        pass
+
+    def tearDown(self):
+        # Code à exécuter après chaque test
+        pass
+
     def test_name_table(self):
         # Test de la méthode name_table
         self.assertEqual(Car.name_table(), "car")

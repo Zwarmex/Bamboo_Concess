@@ -18,7 +18,7 @@ class DBAccess:
             return db_connection.cursor(), db_connection
         except sql.OperationalError:
             print(f"Error in DBCursor {sys.exc_info()}")
-            return None
+            return None, None
 
     @staticmethod
     def db_close(cursor: sql.dbapi2.Cursor) -> None:
