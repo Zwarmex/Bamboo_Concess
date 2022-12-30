@@ -1,4 +1,4 @@
 main_project/classes/__pycache__/*
 .idea/*
 *.py[cod]
-database/bamboo_concess.db
+#database/bamboo_concess.db
