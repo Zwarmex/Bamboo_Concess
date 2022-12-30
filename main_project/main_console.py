@@ -89,6 +89,10 @@ class ApplicationConsole:
         """
         This function display the stock from the database
         """
+        if not self.car_list_stock:
+            print("There are no cars in stock...")
+            self.menu_choice()
+            return
         str_list: list = ["Id", "Brand", "Type", "Price (€)"]
         space_dict: dict = {
             str_list[0]: len(str(max(self.car_list_stock, key=lambda x: len(str(x.id))).id)) + self.space_display,
