@@ -115,8 +115,9 @@ class DBAccess:
                              f"JOIN car ON {cls.name_table()}.{cls.id_column()} = car.id_{cls.name_table()} " \
                              f"WHERE car.id = {id_car}"
                 cursor.execute(query)
-                if cursor.fetchone() is not None:
-                    return cls.load_results(cursor, cursor.fetchone())
+                results = cursor.fetchone()
+                if results is not None:
+                    return cls.load_results(cursor, results)
                 return None
             except sql.OperationalError:
                 print(f"Error in GetCarComponent {sys.exc_info()}")

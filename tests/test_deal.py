@@ -58,6 +58,8 @@ class TestDeal(unittest.TestCase):
         db_connection.commit()
         cursor.execute("delete from deal where date_start_rent = '3/4/1950'")
         db_connection.commit()
+        cursor.execute("delete from historic_deal where date_start_rent = '3/4/1950'")
+        db_connection.commit()
         cursor.execute("update sqlite_sequence set seq = 0 where 1;")
         db_connection.commit()
 
