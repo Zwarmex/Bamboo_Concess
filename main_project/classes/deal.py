@@ -85,6 +85,7 @@ class Deal(Db):
                 print(f"Error in check_rent {sys.exc_info()}")
             finally:
                 self.db_close(cursor)
+        return False
 
     def check_rent(self) -> bool:
         """
@@ -94,7 +95,7 @@ class Deal(Db):
         if self.is_rent:
             if (datetime.today() - (datetime.strptime(self.date_start_rent, "%d/%m/%Y") +
                                     timedelta(days=self.duration_days_rent))).days >= 0:
-                self.remove_db()
+                return self.remove_db()
         return False
 
     @staticmethod
