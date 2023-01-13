@@ -3,6 +3,7 @@ from main_project.classes.car import Car
 from main_project.classes.car_components import Brand
 from main_project.classes.car_components import Motor
 from main_project.classes.car_components import Type
+import sqlite3 as sql
 
 
 class TestCar(unittest.TestCase):
