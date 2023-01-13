@@ -12,18 +12,19 @@ class Car(Db):
     It manages all the methods for cars utilities
     """
 
-    def __init__(self) -> None:
+    def __init__(self, date_tech_control: str = "", price: int = 0, promo: int = 0, id_brand: int = 0, id_type: int = 0,
+                 id_motor: int = 0) -> None:
         """
         It creates a new object Car
         """
         self.id: int = 0
         self.date_stock: str = ""
-        self.date_tech_control: str = ""
-        self.price: int = 0
-        self.promo: int = 0
-        self.id_brand: int = 0
-        self.id_type: int = 0
-        self.id_motor: int = 0
+        self.date_tech_control: str = date_tech_control
+        self.price: int = price
+        self.promo: int = promo
+        self.id_brand: int = id_brand
+        self.id_type: int = id_type
+        self.id_motor: int = id_motor
         self.brand: Brand = Brand()
         self.motor: Motor = Motor()
         self.type: Type = Type()
@@ -157,6 +158,15 @@ class Car(Db):
         """
         This function add to the car its components from the database
         """
-        self.brand = Brand.get_car_component(self.id)
-        self.motor = Motor.get_car_component(self.id)
-        self.type = Type.get_car_component(self.id)
+        if Brand.get_car_component(self.id) is not None:
+            self.brand = Brand.get_car_component(self.id)
+        else:
+            self.brand = None
+        if Motor.get_car_component(self.id) is not None:
+            self.motor = Motor.get_car_component(self.id)
+        else:
+            self.motor = None
+        if Type.get_car_component(self.id) is not None:
+            self.type = Type.get_car_component(self.id)
+        else:
+            self.type = None

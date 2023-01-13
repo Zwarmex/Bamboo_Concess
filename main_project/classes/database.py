@@ -14,11 +14,15 @@ class DBAccess:
         :returns: The connection and the cursor of the database
         """
         try:
-            db_connection: sql.dbapi2.Connection = sql.connect("./database/bamboo_concess.db")
+            db_connection: sql.dbapi2.Connection = sql.connect("../database/bamboo_concess.db")
             return db_connection.cursor(), db_connection
         except sql.OperationalError:
-            print(f"Error in DBCursor {sys.exc_info()}")
-            return None, None
+            try:
+                db_connection: sql.dbapi2.Connection = sql.connect("./database/bamboo_concess.db")
+                return db_connection.cursor(), db_connection
+            except sql.OperationalError:
+                print(f"Error in DBCursor {sys.exc_info()}")
+                return None, None
 
     @staticmethod
     def db_close(cursor: sql.dbapi2.Cursor) -> None:
@@ -40,7 +44,10 @@ class DBAccess:
         new_instance = cls()
         counter: int = 0
         for columnName in cursor.description:
-            setattr(new_instance, columnName[0], data[counter])
+            try:
+                setattr(new_instance, columnName[0], data[counter])
+            except TypeError:
+                return None
             counter += 1
         return new_instance
 
@@ -108,7 +115,9 @@ class DBAccess:
                              f"JOIN car ON {cls.name_table()}.{cls.id_column()} = car.id_{cls.name_table()} " \
                              f"WHERE car.id = {id_car}"
                 cursor.execute(query)
-                return cls.load_results(cursor, cursor.fetchone())
+                if cursor.fetchone() is not None:
+                    return cls.load_results(cursor, cursor.fetchone())
+                return None
             except sql.OperationalError:
                 print(f"Error in GetCarComponent {sys.exc_info()}")
             finally:

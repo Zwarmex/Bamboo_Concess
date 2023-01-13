@@ -11,16 +11,17 @@ class Customer(Db):
     It manages all the methods for customers utilities
     """
 
-    def __init__(self) -> None:
+    def __init__(self, firs_name: str = "", last_name: str = "", phone: int | str = 0,
+                 mail: str = "", address: str = "") -> None:
         """
         It creates a new object Customer
         """
         self.id: int = 0
-        self.first_name: str = ""
-        self.last_name: str = ""
-        self.phone: int | str = 0
-        self.mail: str = ""
-        self.address: str = ""
+        self.first_name: str = firs_name
+        self.last_name: str = last_name
+        self.phone: int | str = phone
+        self.mail: str = mail
+        self.address: str = address
         self.counter: int = 0
         self.loyalty_since: str = ""
 

@@ -1,11 +1,12 @@
 import unittest
+from main_project.classes.deal import Deal
+from main_project.classes.car_components import *
 from main_project.classes.car import Car
-from main_project.classes.car_components import Brand
-from main_project.classes.car_components import Motor
-from main_project.classes.car_components import Type
+from main_project.classes.customer import Customer
+import sqlite3 as sql
 
 
-class TestCar(unittest.TestCase):
+class TestDeal(unittest.TestCase):
     def setUp(self):
         """
         Code à exécuter avant chaque test
@@ -18,20 +19,26 @@ class TestCar(unittest.TestCase):
         type1.insert_db()
         car1 = Car("3-2-2022TEST", 45_000, 0, 1, 1, 1)
         car1.insert_db()
+        customer1 = Customer("SamuelTEST", "Lambert", "0495717736", "sam.f.lambert@gmail.com", "Rue du village 2, "
+                                                                                               "1450 Villeroux")
+        customer1.insert_db()
+        deal1 = Deal(1, 1, True, "3/4/1950", duration_days_rent=1)
+        deal1.insert_db()
 
     def test_name_table(self):
-        # Test de la méthode name_table
-        self.assertEqual(Car.name_table(), "car")
+        self.assertEqual(Deal.name_table(), "deal")
 
     def test_id_column(self):
-        # Test de la méthode id_column
-        self.assertEqual(Car.id_column(), "idCar")
+        self.assertEqual(Deal.id_column(), "id")
 
-    def test_get_car_list(self):
-        self.assertEqual(len(Car.get_car_list()), 1)
+    def test_get_all(self):
+        self.assertEqual(len(Deal.get_all()), 1)
+        self.assertIsInstance(Deal.get_all(), list)
 
-    def test_get_car(self):
-        self.assertIsInstance(Car.get_car(1), Car)
+    def test_insert_db(self):
+        deal1 = Deal(1, 1, True, "3/4/1950", duration_days_rent=1)
+        self.assertTrue(deal1.insert_db(), True)
+        self.assertTrue(deal1.remove_db(), True)
 
     def tearDown(self):
         """
@@ -46,6 +53,10 @@ class TestCar(unittest.TestCase):
         cursor.execute("delete from brand where name='ToyotaTest';")
         db_connection.commit()
         cursor.execute("delete from type where name='SUVTEST'")
+        db_connection.commit()
+        cursor.execute("delete from customer where first_name = 'SamuelTEST'")
+        db_connection.commit()
+        cursor.execute("delete from deal where date_start_rent = '3/4/1950'")
         db_connection.commit()
         cursor.execute("update sqlite_sequence set seq = 0 where 1;")
         db_connection.commit()
